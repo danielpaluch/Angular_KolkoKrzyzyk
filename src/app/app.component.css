@@ -1,0 +1,17 @@
+.body{
+    padding-top: 2%;
+    display: flex;
+    justify-content: center;
+}
+p{
+    color: white;
+    font-size: larger;
+    text-align: center;
+    padding:10px;
+}
+.whole{
+    width: 500px;
+    border-radius: 5px; 
+    background-color: black;
+    top: 50%;
+}

@@ -1,2 +1,13 @@
-<p>Kolej gracza: {{getPlayer()}}</p>
-<app-board></app-board>
+<section class="body">
+    <div class="whole">
+        <p>Kolej gracza: {{getPlayer()}}</p>
+        <app-board></app-board>
+        <p *ngIf="!winner; else win"><button mat-flat-button color="warn" (click)="restart()">Zrestartować grę?</button>
+        </p>
+    </div>
+</section>
+<ng-template #win>
+    <p>Zwyciężył gracz: {{getName()}} <button mat-flat-button color="warn" (click)="restart()">Zrestartować
+            grę?</button> </p>
+
+</ng-template>
