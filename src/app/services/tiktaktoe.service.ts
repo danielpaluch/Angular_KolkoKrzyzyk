@@ -18,13 +18,29 @@ export class TiktaktoeService {
   }
 
 
+  AI(){
+    const newBoard = this.boardGame.getValue();
+    let index = 0;
+    let places = [];
+    let howMuch=0;
+    for(let i=0;i<newBoard.length;i++){
+      if(newBoard[i]==""){
+        places[howMuch]=i;
+        howMuch++;
+      }
+    }
+    index = places[Math.floor(Math.random() * places.length)];
+    newBoard[index] = "X";
+    this.boardGame.next(newBoard);
+    this.doIncrement();
+  }
+
   addX(index: number) {
     const newBoard = this.boardGame.getValue();
     newBoard[index] = "X";
     this.boardGame.next(newBoard);
     this.doIncrement();
   }
-
   addO(index: number) {
     const newBoard = this.boardGame.getValue();
     newBoard[index] = "O";
@@ -46,6 +62,8 @@ export class TiktaktoeService {
     this.boardGame.next(board);
     this.win = false;
     this.winn.next(this.win);
+    this.player = true;
+    this.Incerement.next(this.player);
   }
 
   winner(board: Array<string>): boolean {
@@ -66,7 +84,6 @@ export class TiktaktoeService {
       this.win = true;
     if ((board[2] === board[5]) && (board[5] === board[8]) && board[2] != "")
       this.win = true;
-    
 
     console.log("SPRAWDZAM " + this.win);
     this.winn.next(this.win);

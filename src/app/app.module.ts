@@ -8,11 +8,13 @@ import { BoardComponent } from './board/board.component';
 import { TiktaktoeService } from './services/tiktaktoe.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
+import { BoardAIComponent } from './board-ai/board-ai.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardComponent
+    BoardComponent,
+    BoardAIComponent
   ],
   imports: [
     BrowserModule,

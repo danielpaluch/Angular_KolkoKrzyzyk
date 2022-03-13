@@ -3,6 +3,12 @@
     display: flex;
     justify-content: center;
 }
+.chooseGame{
+    width: 100%;
+    margin: 5px;
+    display: flex;
+    justify-content: space-around;
+}
 p{
     color: white;
     font-size: larger;
@@ -12,6 +18,6 @@ p{
 .whole{
     width: 500px;
     border-radius: 5px; 
-    background-color: black;
-    top: 50%;
+    border: 3px solid black;
+    background-color: #241c1c;
 }

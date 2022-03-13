@@ -1,0 +1,6 @@
+<div class="board">
+    <button mat-flat-button color="primary" class="btn" *ngFor="let btn of board; let i = index"
+        (click)="click($event, i)">
+        {{btn}}
+    </button>
+</div>

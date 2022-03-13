@@ -1,13 +1,31 @@
-<section class="body">
+<div class="body">
     <div class="whole">
-        <p>Kolej gracza: {{getPlayer()}}</p>
-        <app-board></app-board>
-        <p *ngIf="!winner; else win"><button mat-flat-button color="warn" (click)="restart()">Zrestartować grę?</button>
-        </p>
+        <div class="chooseGame">
+            <button mat-flat-button color="warn" (click)="choosePlayer($event)">Zagraj we dwoje!</button>
+            <button mat-flat-button color="warn" (click)="chooseAI($event)">Zagraj z komputerem!</button>
+        </div>
+        <section *ngIf="chooseGame; then playWithPlayer; else playWithAI">
+        </section>      
     </div>
-</section>
+</div>
+
+
+<ng-template #playWithPlayer>
+    <p>Kolej gracza: {{getPlayer()}}</p>
+    <app-board></app-board>
+    <p *ngIf="!winner; else win"><button mat-flat-button color="warn" (click)="restart()">Zrestartować
+            grę?</button>
+    </p>
+</ng-template>
+<ng-template #playWithAI>
+    <p>Kolej gracza: {{getPlayer()}}</p>
+    <app-board-ai></app-board-ai>
+    <p *ngIf="!winner; else win"><button mat-flat-button color="warn" (click)="restart()">Zrestartować
+            grę?</button>
+    </p>
+</ng-template>
+
 <ng-template #win>
     <p>Zwyciężył gracz: {{getName()}} <button mat-flat-button color="warn" (click)="restart()">Zrestartować
             grę?</button> </p>
-
 </ng-template>
